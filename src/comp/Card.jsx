@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 
 function Cards({ id, name, dece, status, updateTask }) {
   const [selecte, setselecte] = useState(status);
-
+  console.warn("id",id);
   const cardChange = (e) => {
     const newStatus = e.target.value;
     setselecte(newStatus);

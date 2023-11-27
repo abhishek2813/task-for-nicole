@@ -24,7 +24,8 @@ function App() {
   }
   
   const updateTask = (taskId,status)=>{
-    
+
+    console.warn("updateTask" ,taskId);
    const updateArr = task.map((item)=>{
     if(item.id===taskId){
        item = {...item,status:status}
@@ -33,7 +34,7 @@ function App() {
    })
    setTask(updateArr);
   }
-  // console.warn(task);
+  console.warn(task);
 
   const filterPendingArr = task.filter((item)=>item.status==="pending")
   const filterHoldArr = task.filter((item)=>item.status==="hold")
@@ -53,22 +54,22 @@ function App() {
         <Col xs={3} >
         <Column text="pending" type="primary"/>
         {filterPendingArr.map((item)=>(
-          <Cards name={item.name} dece={item.dece} status={item.status} key={item.id} updateTask={updateTask}/>
+          <Cards name={item.name} dece={item.dece} status={item.status} id={item.id} key={item.id} updateTask={updateTask}/>
         ))}
         </Col>
         <Col xs={3}><Column text="On hold" type="danger"/>
         {filterHoldArr.map((item)=>(
-          <Cards name={item.name} dece={item.dece} status={item.status} key={item.id} updateTask={updateTask}/>
+          <Cards name={item.name} dece={item.dece} status={item.status} id={item.id} key={item.id} updateTask={updateTask}/>
         ))}
         </Col>
         <Col xs={3}><Column text="In Progress" type="warning"/>
         {filterProgressArr.map((item)=>(
-          <Cards name={item.name} dece={item.dece} status={item.status} key={item.id} updateTask={updateTask}/>
+          <Cards name={item.name} dece={item.dece} status={item.status} id={item.id} key={item.id} updateTask={updateTask}/>
         ))}
         </Col>
         <Col xs={3}><Column text="Is complete" type="success"/>
         {filterCompleteArr.map((item)=>(
-          <Cards name={item.name} dece={item.dece} status={item.status} key={item.id} updateTask={updateTask}/>
+          <Cards name={item.name} dece={item.dece} status={item.status} id={item.id} key={item.id} updateTask={updateTask}/>
         ))}
         </Col>
       </Row>
